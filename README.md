@@ -45,3 +45,8 @@ Andrei: Docker Lead
 Mike: Docs Lead
 Viktor: CI/CD Lead
 Thomas: Infrastructure Lead
+
+## Organisation
+
+The repository has been moved to the Organisation "devops-team-devcraft". It can be reached here:
+https://github.com/devops-team-devcraft/devcraft-devops
