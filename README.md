@@ -37,3 +37,11 @@ npm test
 - **ORM:** Prisma
 - **Datenbank:** SQLite (lokal), PostgreSQL (Docker/Production)
 - **Tests:** Jest + Supertest
+
+
+## Team
+
+Andrei: Docker Lead
+Mike: Docs Lead
+Viktor: CI/CD Lead
+Thomas: Infrastructure Lead
