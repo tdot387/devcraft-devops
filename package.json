@@ -1,0 +1,24 @@
+{
+  "name": "notes-api",
+  "version": "1.0.0",
+  "description": "Simple Notes API – Starter Code for DevOps Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "jest --forceExit --detectOpenHandles",
+    "db:migrate": "npx prisma migrate deploy",
+    "db:push": "npx prisma db push",
+    "db:generate": "npx prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "prisma": "^6.0.0",
+    "supertest": "^7.0.0"
+  }
+}

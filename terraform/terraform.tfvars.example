@@ -1,0 +1,14 @@
+# Hetzner Cloud API Token (aus der Hetzner Console → Security → API Tokens)
+hcloud_token = "your-hetzner-api-token-here"
+
+# Pfad zu deinem öffentlichen SSH-Schlüssel
+ssh_public_key_path = "~/.ssh/id_rsa.pub"
+
+# Name für den SSH Key in Hetzner (frei wählbar)
+ssh_key_name = "devops-project"
+
+# Server-Typ (cx22 = 2 vCPU, 4GB RAM, ~€4/Monat)
+server_type = "cx22"
+
+# Standort (nbg1 = Nürnberg, fsn1 = Falkenstein, hel1 = Helsinki)
+location = "nbg1"
