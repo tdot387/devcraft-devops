@@ -1,0 +1,9 @@
+node_modules
+.git
+.gitignore
+dev.db
+dev.db-journal
+.env
+.env.example
+tests
+README.md
