@@ -9,7 +9,9 @@
     "test": "jest --forceExit --detectOpenHandles",
     "db:migrate": "npx prisma migrate deploy",
     "db:push": "npx prisma db push",
-    "db:generate": "npx prisma generate"
+    "db:generate": "npx prisma generate",
+    "docker:db": "docker compose up db",
+    "docker:db:stop": "docker compose down"
   },
   "dependencies": {
     "@prisma/client": "^6.0.0",
