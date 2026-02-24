@@ -1,0 +1,40 @@
+# docker-compose.yml
+#
+# Starts a PostgreSQL database in a Docker container.
+# Data is persisted in a Docker volume, so it survives container restarts.
+#
+# Usage:
+#   npm run docker:db        → start database in background
+#   npm run docker:db:stop   → stop database
+#   test and connect using: docker exec -it devcraft-db psql -U devcraft -d devcraft_notes
+#
+# Connection string:
+#   postgresql://devcraft:devcraft2026@localhost:5432/devcraft_notes
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: devcraft-db
+    environment:
+      POSTGRES_USER: devcraft
+      POSTGRES_PASSWORD: devcraft2026
+      POSTGRES_DB: devcraft_notes
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devcraft -d devcraft_notes"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # app:
+  #   # will be needed if person A & D are done on Day 2 - initialize Docker
+  #   build: .
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+
+volumes:
+  postgres_data:
