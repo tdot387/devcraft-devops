@@ -10,8 +10,11 @@
     "db:migrate": "npx prisma migrate deploy",
     "db:push": "npx prisma db push",
     "db:generate": "npx prisma generate",
-    "docker": "docker compose up",
-    "docker:stop": "docker compose down"
+    "docker:start": "docker compose up",
+    "docker:stop": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:build": "docker compose up --build",
+    "docker:service:status": "docker compose ps"
   },
   "dependencies": {
     "@prisma/client": "^6.0.0",
