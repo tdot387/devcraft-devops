@@ -1,0 +1,17 @@
+# docker-compose.override.yml
+#
+# Automatically loaded by Docker Compose for local development.
+# Overrides settings from docker-compose.yml – do NOT use in production.
+
+services:
+  app:
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+    command: sh -c "echo 'Dev override active' && node --watch server.js"
+
+  db:
+    ports:
+      - "5432:5432"
