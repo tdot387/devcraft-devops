@@ -3,3 +3,8 @@ node_modules
 prisma/dev.db
 terraform/terraform.tfvars
 terraform/.terraform/providers/registry.terraform.io
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfvars.example
+terraform/variables.tf
+terraform/terraform.tfstate.backup
