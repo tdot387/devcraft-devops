@@ -50,3 +50,7 @@ Thomas: Infrastructure Lead
 
 The repository has been moved to the Organisation "devops-team-devcraft". It can be reached here:
 https://github.com/devops-team-devcraft/devcraft-devops
+
+## Hetzner-Server IP
+
+46.224.221.52
