@@ -20,7 +20,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /opt/notes-api
+            export IMAGE_TAG=${{ github.event.workflow_run.head_sha }}
             docker compose pull
             docker compose up -d
             docker compose exec -T app npx prisma db push
-            echo "Deployment complete!"
+            echo "Deployment complete: $IMAGE_TAG"
