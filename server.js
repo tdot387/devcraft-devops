@@ -7,8 +7,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/health", (req, res) => {
-  res.json({ status: "ok", version: "1.0.1", team: "devcraft" });
+app.get("/health", async (req, res) => {
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+    res.json({ status: "ok", database: "connected" });
+  } catch (error) {
+    res.status(503).json({ status: "error", database: "disconnected" });
+  }
 });
 
 app.use("/notes", notesRouter);
