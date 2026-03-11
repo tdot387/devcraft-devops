@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const notesRouter = require("./routes/notes");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 const app = express();
 
@@ -16,8 +18,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/health", (req, res) => {
-  res.json({ status: "ok", version: "1.0.1", team: "devcraft" });
+app.get("/health", async (req, res) => {
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+    res.json({ status: "ok", database: "dies ist ein test 1337" });
+  } catch (error) {
+    res.status(503).json({ status: "error", database: "disconnected" });
+  }
 });
 
 app.use("/notes", notesRouter);
