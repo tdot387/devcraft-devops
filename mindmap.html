@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>DevCraft – From Code to Production</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0d1117;
+        font-family: "Inter", "Segoe UI", sans-serif;
+        color: #e2e8f0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px 24px;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #fff;
+        text-align: center;
+        flex-shrink: 0;
+        letter-spacing: -0.5px;
+      }
+      h1 span {
+        color: #63b3ed;
+      }
+
+      .subtitle-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .info-pill {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 6px 14px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #a0aec0;
+      }
+
+      /* ── FLOW ── */
+      .flow {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
+        height: 45vh;
+        flex-shrink: 0;
+      }
+
+      /* ── ARROW ── */
+      .arrow-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 0 4px;
+        flex-shrink: 0;
+      }
+      .arr {
+        font-size: 1.6rem;
+        color: #4a5568;
+      }
+      .conn-label {
+        font-size: 0.68rem;
+        color: #4a5568;
+        text-align: center;
+        max-width: 64px;
+        line-height: 1.3;
+      }
+
+      /* ── CARD ── */
+      .stage {
+        background: #161b27;
+        border-radius: 16px;
+        padding: 14px 14px;
+        flex: 1;
+        min-width: 0;
+        border-top: 4px solid var(--color);
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+      }
+
+      .stage-icon {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+      .stage-title {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--color);
+        margin-bottom: 3px;
+        letter-spacing: -0.3px;
+      }
+      .stage-subtitle {
+        font-size: 0.82rem;
+        color: #718096;
+        font-weight: 600;
+        font-style: normal;
+        margin-bottom: 12px;
+      }
+
+      .stage-items {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+      }
+      .stage-items li {
+        font-size: 0.98rem;
+        color: #e2e8f0;
+        padding-left: 10px;
+        border-left: 2px solid var(--color);
+        line-height: 1.35;
+        font-weight: 600;
+      }
+      .stage-items li span {
+        display: block;
+        font-size: 0.72rem;
+        color: #718096;
+        margin-top: 1px;
+        font-family: "Courier New", monospace;
+        font-weight: 400;
+      }
+
+      .stage-badge {
+        margin-top: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 7px;
+        padding: 7px 9px;
+        font-size: 0.72rem;
+        color: #718096;
+        line-height: 1.5;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        font-family: "Courier New", monospace;
+      }
+
+      /* ── TEAM ── */
+      .team-row {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .team-card {
+        background: #161b27;
+        border-radius: 10px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-left: 3px solid var(--color);
+      }
+      .team-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: #0d1117;
+        flex-shrink: 0;
+      }
+      .team-name {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.2px;
+      }
+      .team-role {
+        font-size: 0.78rem;
+        color: #718096;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚀 DevCraft – <span>From Code to Production</span></h1>
+    <div class="subtitle-row">
+      <div class="info-pill">
+        📝 REST API zum Erstellen, Lesen, Bearbeiten & Löschen von Notizen
+      </div>
+      <div class="info-pill">
+        🔗 6 Endpoints · GET /notes · POST /notes · PATCH & DELETE /notes/:id
+      </div>
+      <div class="info-pill">🛡️ Automatisch getestet vor jedem Deployment</div>
+    </div>
+
+    <div class="flow">
+      <!-- LOKAL -->
+      <div class="stage" style="--color: #68d391">
+        <div class="stage-icon">💻</div>
+        <div class="stage-title">Lokal</div>
+        <div class="stage-subtitle">Entwicklungsumgebung</div>
+        <ul class="stage-items">
+          <li>Node.js + Express<span>REST API · läuft auf Port 3000</span></li>
+          <li>
+            Prisma + SQLite<span>DB als lokale Datei · kein Server nötig</span>
+          </li>
+          <li>
+            Jest + Supertest<span
+              >npm test · API-Routen automatisch testen</span
+            >
+          </li>
+          <li>.env Datei<span>Secrets lokal · nie ins Git committen</span></li>
+        </ul>
+        <div class="stage-badge">
+          Lokale Entwicklung ohne Docker oder externen Server
+        </div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arr">→</div>
+        <div class="conn-label">npm test OK</div>
+      </div>
+
+      <!-- DOCKER -->
+      <div class="stage" style="--color: #63b3ed">
+        <div class="stage-icon">🐳</div>
+        <div class="stage-title">Docker</div>
+        <div class="stage-subtitle">Containerisierung</div>
+        <ul class="stage-items">
+          <li>
+            Dockerfile<span>Bauplan · Node.js App in Image verpacken</span>
+          </li>
+          <li>
+            docker-compose.yml<span
+              >Alle Services · Ports · Volumes definiert</span
+            >
+          </li>
+          <li>App Container<span>Node.js API · gebaut via Dockerfile</span></li>
+          <li>
+            DB Container<span>PostgreSQL 17 · Daten in Volume gespeichert</span>
+          </li>
+          <li>
+            Monitoring Container<span>Uptime Kuma · läuft auf Port 3001</span>
+          </li>
+          <li>
+            compose.override.yml<span
+              >Lokale Overrides · Prod-Config bleibt sauber</span
+            >
+          </li>
+        </ul>
+        <div class="stage-badge">
+          Gleiche Umgebung auf jedem Rechner und auf dem Server
+        </div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arr">→</div>
+        <div class="conn-label">push auf main</div>
+      </div>
+
+      <!-- CI/CD -->
+      <div class="stage" style="--color: #f6ad55">
+        <div class="stage-icon">⚙️</div>
+        <div class="stage-title">CI / CD</div>
+        <div class="stage-subtitle">GitHub Actions</div>
+        <ul class="stage-items">
+          <li>
+            Trigger<span>Jeder Push & PR auf main startet die Pipeline</span>
+          </li>
+          <li>
+            1. Test-Job<span>PostgreSQL starten · Prisma setup · npm test</span>
+          </li>
+          <li>2. Build-Job<span>Docker Image bauen · zu GHCR pushen</span></li>
+          <li>
+            3. Deploy-Job<span
+              >SSH auf Server · compose pull · compose up -d</span
+            >
+          </li>
+        </ul>
+        <div class="stage-badge">
+          Kein manuelles Deployment – alles läuft automatisch
+        </div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arr">→</div>
+        <div class="conn-label">Image gepusht</div>
+      </div>
+
+      <!-- GHCR -->
+      <div class="stage" style="--color: #fbd38d">
+        <div class="stage-icon">📦</div>
+        <div class="stage-title">GHCR</div>
+        <div class="stage-subtitle">GitHub Container Registry</div>
+        <ul class="stage-items">
+          <li>
+            Image-Speicher bei GitHub<span
+              >ghcr.io/devops-team-devcraft/...</span
+            >
+          </li>
+          <li>
+            Tag per Commit-SHA<span
+              >Jeder Push = eigenes versioniertes Image</span
+            >
+          </li>
+          <li>Rollback<span>Altes Image jederzeit wieder deployen</span></li>
+          <li>Auth via GITHUB_TOKEN<span>Kein manuelles Login nötig</span></li>
+        </ul>
+        <div class="stage-badge">
+          Jedes Image ist versioniert – Rollback jederzeit möglich
+        </div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arr">→</div>
+        <div class="conn-label">terraform apply</div>
+      </div>
+
+      <!-- INFRA -->
+      <div class="stage" style="--color: #fc8181">
+        <div class="stage-icon">🏗️</div>
+        <div class="stage-title">Infrastruktur</div>
+        <div class="stage-subtitle">Terraform + Hetzner Cloud</div>
+        <ul class="stage-items">
+          <li>
+            Infrastructure as Code<span
+              >Server in main.tf definiert · versioniert in Git</span
+            >
+          </li>
+          <li>
+            Hetzner VPS<span>~4–6 €/Monat · Ubuntu · SSH-Key hinterlegt</span>
+          </li>
+          <li>
+            terraform apply<span
+              >Server wird automatisch erstellt & konfiguriert</span
+            >
+          </li>
+          <li>
+            terraform destroy<span>Server auf Knopfdruck wieder löschen</span>
+          </li>
+        </ul>
+        <div class="stage-badge">
+          Server per Code definiert – jederzeit neu aufbaubar
+        </div>
+      </div>
+
+      <div class="arrow-wrap">
+        <div class="arr">→</div>
+        <div class="conn-label">compose up -d</div>
+      </div>
+
+      <!-- PRODUCTION -->
+      <div class="stage" style="--color: #b794f4">
+        <div class="stage-icon">🟢</div>
+        <div class="stage-title">Production</div>
+        <div class="stage-subtitle">Live · 46.224.221.52</div>
+        <ul class="stage-items">
+          <li>Notes API<span>http://46.224.221.52:3000/health</span></li>
+          <li>PostgreSQL 17<span>Daten in Docker Volume · persistent</span></li>
+          <li>
+            Uptime Kuma<span
+              >http://46.224.221.52:3001 · Monitoring Dashboard</span
+            >
+          </li>
+          <li>Auto-Deploy<span>Push auf main → läuft in ~2 Min live</span></li>
+          <li>
+            POST /notes<span
+              >curl -X POST http://46.224.221.52:3000/notes -H "Content-Type:
+              application/json" -d '{"title":"Test"}'</span
+            >
+          </li>
+          <li>GET /notes<span>curl http://46.224.221.52:3000/notes</span></li>
+        </ul>
+        <div class="stage-badge">
+          Push auf main → App läuft in ~2 Minuten live
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div class="team-row">
+      <div class="team-card" style="--color: #68d391">
+        <div class="team-avatar">A</div>
+        <div>
+          <div class="team-name">Andrei</div>
+          <div class="team-role">Docker Lead</div>
+        </div>
+      </div>
+      <div class="team-card" style="--color: #b794f4">
+        <div class="team-avatar">M</div>
+        <div>
+          <div class="team-name">Mike</div>
+          <div class="team-role">Monitoring & Docs Lead</div>
+        </div>
+      </div>
+      <div class="team-card" style="--color: #f6ad55">
+        <div class="team-avatar">V</div>
+        <div>
+          <div class="team-name">Viktor</div>
+          <div class="team-role">CI/CD Lead</div>
+        </div>
+      </div>
+      <div class="team-card" style="--color: #fc8181">
+        <div class="team-avatar">T</div>
+        <div>
+          <div class="team-name">Thomas</div>
+          <div class="team-role">Infrastructure Lead</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

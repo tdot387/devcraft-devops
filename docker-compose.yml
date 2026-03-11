@@ -39,18 +39,6 @@ services:
       db:
         condition: service_healthy
 
-  # pgAdmin is a web-based database management tool for PostgreSQL. - simply use this url in your browser: http://localhost:8080 after starting the containers with `npm run docker:start`
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: devcraft-pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
-    ports:
-      - "8080:80"
-    depends_on:
-      - db
-
   uptime-kuma:
     image: louislam/uptime-kuma:1
     ports:
