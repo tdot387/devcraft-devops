@@ -138,4 +138,4 @@ Status der laufenden Services:          docker compose ps
 
 Shell in laufendem Container öffnen:    docker compose exec app sh
 
-<!-- Test row for build -->
+<!-- Test row for build  -->
