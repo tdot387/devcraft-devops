@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const notesRouter = require("./routes/notes");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
@@ -19,6 +20,10 @@ app.get("/health", async (req, res) => {
 });
 
 app.use("/notes", notesRouter);
+
+app.get("/overview", (req, res) => {
+  res.sendFile(path.join(__dirname, "mindmap.html"));
+});
 
 const PORT = process.env.PORT || 3000;
 
